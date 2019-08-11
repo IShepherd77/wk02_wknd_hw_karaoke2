@@ -1,12 +1,11 @@
 class Guest
 
-attr_reader :name, :age
+attr_reader :name
 attr_accessor :wallet
 
 
-def initialize(name, age, wallet)
+def initialize(name, wallet = 0)
   @name = name
-  @age = age
   @wallet = wallet
 end
 

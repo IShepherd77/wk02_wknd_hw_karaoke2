@@ -6,6 +6,7 @@ class SongTest < MiniTest::Test
 
 def setup
 @song_1 = Song.new("Led Zeppelin", "Kashmir")
+@song_2 = Song.new("Foo Fighters", "One by one")
 end
 
 def test_get_song_artist
