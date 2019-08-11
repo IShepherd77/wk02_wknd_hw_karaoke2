@@ -19,6 +19,9 @@ class RoomTest < MiniTest::Test
     @guest_2 = Guest.new("Vic")
     @guest_3 = Guest.new("Alan")
     @guest_4 = Guest.new("Charlotte")
+    @guest_5 = Guest.new("Tom")
+    @guest_6 = Guest.new("Dick")
+    @guest_7 = Guest.new("Harry")
   end
 
   def test_room_name()
@@ -88,6 +91,18 @@ class RoomTest < MiniTest::Test
     assert_equal(1, @room_1.playlist_count())
     @room_1.remove_song_from_playlist(@song_2)
     assert_equal(0, @room_1.playlist_count)
+  end
+
+  #test too many guests checking in
+  def test_too_many_guests_in_room__true()
+    @room_1.check_in_guest(@guest_1)
+    @room_1.check_in_guest(@guest_2)
+    @room_1.check_in_guest(@guest_3)
+    @room_1.check_in_guest(@guest_4)
+    @room_1.check_in_guest(@guest_5)
+    @room_1.check_in_guest(@guest_6)
+    @room_1.check_in_guest(@guest_7)
+    assert_equal(7, @room_1.check_in_count)
   end
 
 end

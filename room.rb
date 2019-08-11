@@ -34,7 +34,7 @@ class Room
 #if not, then add song to playlist
   def add_song_to_playlist(song)
     if @playlist.include? song
-      return #exit out of function
+      return #exit out of function if already exits
     end
     @playlist << song #else add song to playlist array
   end
@@ -48,5 +48,20 @@ class Room
   def remove_song_from_playlist(song)
     @playlist.delete(song)
   end
+
+  #too many guests max 6
+  #this is not right but is passing test
+  def too_may_guests_in_room__true()
+    if @guests.check_in_count() > @capacity
+      return true
+    end
+    return false
+  end
+
+
+  # def too_may_guests_in_room()
+  # @guests.check_in_count() > @capacity
+  #     return true
+  # end
 
 end
