@@ -1,4 +1,4 @@
-class Customer
+class Guest
 
 attr_reader :name, :age
 
