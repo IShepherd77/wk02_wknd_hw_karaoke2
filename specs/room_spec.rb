@@ -102,7 +102,21 @@ class RoomTest < MiniTest::Test
     @room_1.check_in_guest(@guest_5)
     @room_1.check_in_guest(@guest_6)
     @room_1.check_in_guest(@guest_7)
-    assert_equal(7, @room_1.check_in_count)
+    assert_equal(true, @room_1.too_many_guests_in_room)
+    # @room_1.check_out_guest(@guest_7)
+    # assert_equal(false, @room_1.too_many_guests_in_room)
   end
+
+
+  def test_too_many_guests_in_room__false()
+    @room_1.check_in_guest(@guest_1)
+    @room_1.check_in_guest(@guest_2)
+    @room_1.check_in_guest(@guest_3)
+    @room_1.check_in_guest(@guest_4)
+    @room_1.check_in_guest(@guest_5)
+    @room_1.check_in_guest(@guest_6)
+    assert_equal(false, @room_1.too_many_guests_in_room)
+  end
+
 
 end
